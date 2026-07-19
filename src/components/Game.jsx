@@ -1,14 +1,27 @@
+import gameBg from "../assets/game-bg.png";
+
 function Game() {
   return (
     <div
       style={{
-        background: "#060B17",
-        color: "white",
-        minHeight: "100vh",
+        backgroundImage: `url(${gameBg})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+
+        width: "100%",
+        height: "100vh",
+
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        fontSize: "40px"
+
+        color: "white",
+        fontSize: "48px",
+        fontWeight: "bold",
+        textShadow: "0 0 15px rgba(0,0,0,0.8)",
+
+        overflow: "hidden",
       }}
     >
       🚀 SPACE MINER
