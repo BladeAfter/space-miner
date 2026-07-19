@@ -4,6 +4,7 @@ import App from "./App";
 
 import "./index.css";
 import "./styles/app.css";
+import "./styles/loading.css";
 
 import { initTelegram } from "./telegram";
 

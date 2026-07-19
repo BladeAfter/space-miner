@@ -1,0 +1,129 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+.loading-screen{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:
+        radial-gradient(circle at top,#1f3b74 0%,#09111f 40%,#05080f 100%);
+}
+
+.loading-content{
+    width:90%;
+    max-width:380px;
+    text-align:center;
+    z-index:2;
+}
+
+.rocket{
+    font-size:70px;
+    animation:float 2s ease-in-out infinite;
+}
+
+.loading-content h1{
+    margin-top:15px;
+    color:#fff;
+    font-size:38px;
+    font-weight:800;
+    letter-spacing:3px;
+}
+
+.loading-message{
+    margin-top:15px;
+    color:#9fb4ff;
+    font-size:16px;
+    min-height:22px;
+}
+
+.progress-bar{
+    margin-top:35px;
+    width:100%;
+    height:18px;
+    border-radius:30px;
+    overflow:hidden;
+    border:2px solid #3d79ff;
+    background:#111827;
+    box-shadow:0 0 20px rgba(61,121,255,.4);
+}
+
+.progress-fill{
+    height:100%;
+    width:0%;
+    border-radius:30px;
+    background:linear-gradient(
+        90deg,
+        #00d4ff,
+        #008cff,
+        #00d4ff
+    );
+    background-size:200%;
+    animation:shine 2s linear infinite;
+    transition:width .15s linear;
+}
+
+.loading-content span{
+    display:block;
+    margin-top:14px;
+    color:#fff;
+    font-size:20px;
+    font-weight:bold;
+}
+
+.stars{
+    position:absolute;
+    inset:0;
+    background-image:
+        radial-gradient(white 1px,transparent 1px),
+        radial-gradient(#6fa8ff 1px,transparent 1px);
+    background-size:80px 80px,120px 120px;
+    background-position:0 0,40px 40px;
+    opacity:.45;
+    animation:starsMove 20s linear infinite;
+}
+
+@keyframes float{
+
+    0%{
+        transform:translateY(0px);
+    }
+
+    50%{
+        transform:translateY(-12px);
+    }
+
+    100%{
+        transform:translateY(0px);
+    }
+
+}
+
+@keyframes shine{
+
+    from{
+        background-position:0%;
+    }
+
+    to{
+        background-position:200%;
+    }
+
+}
+
+@keyframes starsMove{
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(120px);
+    }
+
+}
