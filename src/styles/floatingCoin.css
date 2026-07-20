@@ -1,0 +1,37 @@
+.floating-coin{
+
+    position:fixed;
+
+    font-size:34px;
+
+    pointer-events:none;
+
+    z-index:999;
+
+    animation:coinFly .8s forwards;
+
+}
+
+@keyframes coinFly{
+
+    0%{
+
+        opacity:1;
+
+        transform:
+            translate(0,0)
+            scale(1);
+
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:
+            translate(0,-180px)
+            scale(1.8);
+
+    }
+
+}

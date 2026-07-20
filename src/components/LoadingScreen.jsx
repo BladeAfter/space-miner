@@ -9,46 +9,42 @@ const messages = [
   "Pronto!"
 ];
 
-function LoadingScreen({ onFinish }) {
+export default function LoadingScreen({ onFinish }) {
   const [progress, setProgress] = useState(0);
-  const [message, setMessage] = useState(messages[0]);
 
   useEffect(() => {
     let value = 0;
 
-    const interval = setInterval(() => {
-      value += 2;
+    const timer = setInterval(() => {
+      value++;
 
       setProgress(value);
 
-      if (value < 20) setMessage(messages[0]);
-      else if (value < 40) setMessage(messages[1]);
-      else if (value < 60) setMessage(messages[2]);
-      else if (value < 80) setMessage(messages[3]);
-      else setMessage(messages[4]);
-
       if (value >= 100) {
-        clearInterval(interval);
+        clearInterval(timer);
 
         setTimeout(() => {
           onFinish();
-        }, 500);
+        }, 300);
       }
-    }, 50);
+    }, 30);
 
-    return () => clearInterval(interval);
+    return () => clearInterval(timer);
   }, [onFinish]);
+
+  let message = messages[0];
+
+  if (progress >= 20) message = messages[1];
+  if (progress >= 40) message = messages[2];
+  if (progress >= 60) message = messages[3];
+  if (progress >= 80) message = messages[4];
 
   return (
     <div className="loading-screen">
-
       <div className="stars"></div>
 
       <div className="loading-content">
-
-        <div className="rocket">
-          🚀
-        </div>
+        <div className="rocket">🚀</div>
 
         <h1>SPACE MINER</h1>
 
@@ -57,20 +53,18 @@ function LoadingScreen({ onFinish }) {
         </p>
 
         <div className="progress-bar">
-
           <div
             className="progress-fill"
-            style={{ width: `${progress}%` }}
-          ></div>
-
+            style={{
+              width: `${progress}%`
+            }}
+          />
         </div>
 
-        <span>{progress}%</span>
-
+        <span className="loading-percent">
+          {progress}%
+        </span>
       </div>
-
     </div>
   );
 }
-
-export default LoadingScreen;

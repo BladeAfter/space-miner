@@ -1,0 +1,117 @@
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    overflow:hidden;
+
+    background:
+        radial-gradient(circle at top,#182d53,#08111f 65%);
+
+    z-index:-10;
+
+}
+
+/* ESTRELAS */
+
+.stars{
+
+    position:absolute;
+
+    inset:0;
+
+    background-image:
+    radial-gradient(white 1px,transparent 1px);
+
+    background-size:50px 50px;
+
+    animation:moveStars linear infinite;
+
+}
+
+.layer1{
+
+    opacity:.35;
+
+    animation-duration:90s;
+
+}
+
+.layer2{
+
+    opacity:.55;
+
+    background-size:70px 70px;
+
+    animation-duration:120s;
+
+}
+
+.layer3{
+
+    opacity:.8;
+
+    background-size:100px 100px;
+
+    animation-duration:180s;
+
+}
+
+/* PLANETAS */
+
+.planet{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(1px);
+
+}
+
+.planet1{
+
+    width:220px;
+
+    height:220px;
+
+    background:#243f76;
+
+    top:-70px;
+
+    right:-60px;
+
+}
+
+.planet2{
+
+    width:120px;
+
+    height:120px;
+
+    background:#2c8cff;
+
+    bottom:120px;
+
+    left:-40px;
+
+    opacity:.5;
+
+}
+
+@keyframes moveStars{
+
+    from{
+
+        transform:translateY(0);
+
+    }
+
+    to{
+
+        transform:translateY(1200px);
+
+    }
+
+}

@@ -1,0 +1,63 @@
+.production{
+
+    width:100%;
+
+    background:#0d1422;
+
+    border:2px solid #22385b;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    margin-top:25px;
+
+    box-sizing:border-box;
+
+}
+
+.production h2{
+
+    color:white;
+
+    text-align:center;
+
+    margin-bottom:18px;
+
+    letter-spacing:2px;
+
+}
+
+.production-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(3,1fr);
+
+    gap:15px;
+
+}
+
+.production-item{
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:10px;
+
+    color:white;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+}
+
+.icon{
+
+    font-size:34px;
+
+}

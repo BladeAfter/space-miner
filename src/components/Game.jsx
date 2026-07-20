@@ -1,32 +1,53 @@
-import gameBg from "../assets/game-bg.png";
+import { useEffect } from "react";
 
-function Game() {
+import Background from "./Background";
+import Header from "./Header";
+import Drone from "./Drone";
+import Navigation from "./Navigation";
+import OfflineReward from "./OfflineReward";
+
+import useProduction from "../hooks/useProduction";
+import useOffline from "../hooks/useOffline";
+import useAutoSave from "../hooks/useAutoSave";
+
+import { loadGame } from "../services/storage";
+import { useGameStore } from "../store/gameStore";
+
+import "../styles/game.css";
+
+export default function Game() {
+
+  const load = useGameStore((state) => state.loadGame);
+
+  useProduction();
+  useOffline();
+  useAutoSave();
+
+  useEffect(() => {
+    const save = loadGame();
+
+    if (save) {
+      load(save);
+    }
+  }, [load]);
+
   return (
-    <div
-      style={{
-        backgroundImage: `url(${gameBg})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
+    <main className="game">
 
-        width: "100%",
-        height: "100vh",
+      <Background />
 
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
+      <Header />
 
-        color: "white",
-        fontSize: "48px",
-        fontWeight: "bold",
-        textShadow: "0 0 15px rgba(0,0,0,0.8)",
+      <section className="game-center">
+        <Drone />
+      </section>
 
-        overflow: "hidden",
-      }}
-    >
-      🚀 SPACE MINER
-    </div>
+      <section className="game-navigation">
+        <Navigation />
+      </section>
+
+      <OfflineReward />
+
+    </main>
   );
 }
-
-export default Game;
